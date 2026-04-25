@@ -214,13 +214,13 @@ class Trainer:
                 ]
             )
 
-    def load_checkpoint(self) -> None:
+    def load_checkpoint(self) -> bool:
         latest = self.output_dir / "latest.pt"
         best = self.output_dir / "best.pt"
         path = latest if latest.exists() else (best if best.exists() else None)
         if path is None:
             logger.info("No checkpoint found; starting from scratch.")
-            return
+            return False
 
         logger.info("Loading checkpoint: %s", path)
         ckpt = torch.load(path, map_location=self.device)
@@ -238,6 +238,7 @@ class Trainer:
             for _ in range(self.global_step):
                 self.sched.step()
         logger.info("Resumed at step=%s loss=%.4f", self.global_step, self.best_loss)
+        return True
 
     def _save_checkpoint(self, name: str, loss: Optional[float] = None) -> None:
         raw = unwrap_model(self.model)

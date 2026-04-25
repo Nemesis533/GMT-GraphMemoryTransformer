@@ -93,6 +93,8 @@ def main() -> None:
         training_cfg.use_amp = False
     if args.compile_model is not None:
         training_cfg.use_compile = args.compile_model
+    if args.eval_only and not args.resume:
+        raise SystemExit("--eval-only requires --resume so a checkpoint is loaded.")
 
     device = torch.device(
         args.device or ("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -142,9 +144,14 @@ def main() -> None:
             logger.warning("torch.compile is unavailable; continuing without it.")
 
     trainer = Trainer(model, train_dl, val_dl, training_cfg, device)
+    checkpoint_loaded = False
     if args.resume:
-        trainer.load_checkpoint()
+        checkpoint_loaded = trainer.load_checkpoint()
     if args.eval_only:
+        if not checkpoint_loaded:
+            raise FileNotFoundError(
+                f"No checkpoint found in {training_cfg.output_dir} for evaluation."
+            )
         val_loss, ppl = trainer.validate(save_best=False)
         logger.info("Validation loss: %.5f | Perplexity: %.2f", val_loss, ppl)
         return

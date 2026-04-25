@@ -149,7 +149,7 @@ def test_build_dataloaders_reports_missing_streams(tmp_path) -> None:
         )
     except FileNotFoundError as exc:
         message = str(exc)
-    else:  # pragma: no cover - failure branch for readability
+    else:  # pragma: no cover - failure path for readability
         raise AssertionError(
             "build_dataloaders should fail when token streams are absent"
         )
@@ -248,3 +248,39 @@ def test_validation_only_does_not_write_best_checkpoint(tmp_path) -> None:
     assert np.isfinite(val_loss)
     assert np.isfinite(ppl)
     assert not (training_cfg.output_dir / "best.pt").exists()
+
+
+def test_load_checkpoint_reports_missing_checkpoint(tmp_path) -> None:
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    np.arange(20, dtype=np.uint16).tofile(data_dir / "train.bin")
+    np.arange(20, dtype=np.uint16).tofile(data_dir / "val.bin")
+
+    model_cfg = tiny_config()
+    train_dl, val_dl = build_dataloaders(
+        data_dir,
+        seq_len=model_cfg.seq_len,
+        batch_size=2,
+        train_workers=0,
+        val_workers=0,
+        pin_memory=False,
+    )
+    training_cfg = GMTTrainingConfig(
+        data_dir=data_dir,
+        output_dir=tmp_path / "runs",
+        batch_size=2,
+        train_workers=0,
+        val_workers=0,
+        pin_memory=False,
+        use_amp=False,
+        use_compile=False,
+    )
+    trainer = Trainer(
+        GMTV7(model_cfg),
+        train_dl,
+        val_dl,
+        training_cfg,
+        torch.device("cpu"),
+    )
+
+    assert trainer.load_checkpoint() is False
