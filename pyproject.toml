@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gmt-graph-memory-transformer"
+version = "0.1.0"
+description = "Reference implementation of the base v7 Graph Memory Transformer."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Nicola Zanarini" },
+  { name = "Niccolò Ferrari" },
+]
+dependencies = [
+  "torch>=2.0.0",
+  "numpy>=1.24.0",
+  "transformers>=4.30.0",
+  "tqdm>=4.65.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration
+.env
+.env.*
+
+# Data, checkpoints, and generated outputs
+data/
+datasets/
+runs/
+results/
+checkpoints/
+memory/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.npy
+*.npz
+*.csv
+*.jsonl
+
+# Logs and caches
+*.log
+logs/
+wandb/
+mlruns/
+.cache/
+
+# Editors and OS files
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
