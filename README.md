@@ -1,18 +1,25 @@
 # GMT Graph Memory Transformer
 
-Public reference repository for the base v7 Graph Memory Transformer (GMT).
+Graph Memory Transformer (GMT) is a decoder-only language model architecture in
+which the feed-forward transformation is replaced by a graph-structured memory
+cell. Tokens are softly routed to source memory states, moved through a learned
+memory graph, and transformed by the displacement between source and target
+states.
 
-This repository is being structured as a clean research implementation of the
-base GMT v7 model. The first public target is a minimal, reproducible codebase
-for training and evaluating the v7 architecture without historical variants,
-paper build artifacts, or private experiment outputs.
+This repository contains the base v7 GMT implementation layout. The code is
+organized around a small package, explicit configuration, script entrypoints,
+and portable tests.
 
-## Planned Layout
+## Repository Layout
 
 ```text
 GMT-GraphMemoryTransformer/
+├── LICENSE
+├── README.md
 ├── configs/
 │   └── gmt_v7_base.yaml
+├── pyproject.toml
+├── requirements.txt
 ├── scripts/
 │   └── train_gmt_v7.py
 ├── src/
@@ -25,6 +32,5 @@ GMT-GraphMemoryTransformer/
     └── test_smoke.py
 ```
 
-The implementation will be ported from the validated base v7 code path, keeping
-the model behavior faithful while cleaning naming, configuration, data paths,
-and public documentation.
+The next implementation step is to fill this layout with the base v7 model,
+training loop, configuration values, and portable validation tests.

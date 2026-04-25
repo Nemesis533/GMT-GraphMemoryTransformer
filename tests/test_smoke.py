@@ -1,4 +1,4 @@
-"""Smoke tests for the public GMT package skeleton."""
+"""Smoke tests for the GMT package."""
 
 
 def test_package_imports() -> None:

@@ -3,7 +3,7 @@
 
 
 def main() -> None:
-    raise NotImplementedError("GMT v7 training will be ported in the next increment.")
+    raise NotImplementedError("GMT v7 training is not implemented yet.")
 
 
 if __name__ == "__main__":
