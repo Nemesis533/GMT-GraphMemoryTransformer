@@ -1,2 +1,42 @@
-# Base GMT v7 configuration.
-# Values will be added with the model and training implementation.
+model:
+  vocab_size: 50257
+  seq_len: 1024
+  hidden_dim: 768
+  n_heads: 12
+  n_layers: 16
+  memory_slots: 128
+  nav_dim: 128
+  attention_dropout: 0.1
+  embedding_dropout: 0.1
+  grav_eps: 0.01
+  temp_max: 1.0
+  temp_min: 0.1
+  edge_entropy_target: 4.0
+  dead_threshold: 0.001
+  merge_threshold: 0.95
+  centroid_cooldown: 100
+
+training:
+  data_dir: data/prepared_owt
+  output_dir: runs/gmt_v7_base
+  epochs: 2
+  batch_size: 8
+  grad_accum: 33
+  learning_rate: 0.0003
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  warmup_steps: 2000
+  max_val_batches: 512
+  train_workers: 4
+  val_workers: 2
+  pin_memory: true
+  use_amp: true
+  use_compile: true
+  lambda_track: 1.0
+  ortho_beta: 0.05
+  lambda_cluster: 0.3
+  lambda_edge: 0.1
+  lambda_contrast: 0.5
+  merge_every: 110
+  save_every: 200
