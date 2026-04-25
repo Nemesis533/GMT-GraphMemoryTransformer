@@ -38,7 +38,12 @@ python scripts/train_gmt_v7.py --config configs/gmt_v7_base.yaml --resume
 
 The default configuration uses the base v7 settings: 16 layers, hidden size
 768, 12 attention heads, 128 memory slots per block, and a 128-dimensional
-navigation space.
+navigation space. Data and output locations are configured in YAML and can be
+overridden from the command line, for example:
+
+```bash
+python scripts/train_gmt_v7.py --data-dir data/prepared_owt --output-dir runs/gmt_v7_base
+```
 
 ## Repository Layout
 

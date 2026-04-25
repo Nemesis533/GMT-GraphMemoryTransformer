@@ -3,7 +3,14 @@
 import numpy as np
 import torch
 
-from gmt import GMTV7, GMTV7Config, GraphMemoryCell, TokenStreamDataset
+from gmt import (
+    GMTTrainingConfig,
+    GMTV7,
+    GMTV7Config,
+    GraphMemoryCell,
+    TokenStreamDataset,
+    build_dataloaders,
+)
 
 
 def tiny_config() -> GMTV7Config:
@@ -73,3 +80,33 @@ def test_token_stream_dataset(tmp_path) -> None:
     x, y = dataset[1]
     assert x.tolist() == [3, 4]
     assert y.tolist() == [4, 5]
+
+
+def test_training_config_uses_portable_defaults() -> None:
+    config = GMTTrainingConfig()
+
+    assert str(config.data_dir) == "data/prepared_owt"
+    assert str(config.output_dir) == "runs/gmt_v7_base"
+    assert config.batch_size == 8
+    assert config.grad_accum == 33
+
+
+def test_build_dataloaders_reports_missing_streams(tmp_path) -> None:
+    try:
+        build_dataloaders(
+            tmp_path,
+            seq_len=2,
+            batch_size=1,
+            train_workers=0,
+            val_workers=0,
+        )
+    except FileNotFoundError as exc:
+        message = str(exc)
+    else:  # pragma: no cover - failure branch for readability
+        raise AssertionError(
+            "build_dataloaders should fail when token streams are absent"
+        )
+
+    assert "Expected train.bin and val.bin" in message
+    assert "train.bin" in message
+    assert "val.bin" in message

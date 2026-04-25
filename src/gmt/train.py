@@ -36,13 +36,6 @@ from .model import (
 
 logger = logging.getLogger(__name__)
 
-GRAD_ACCUM = 33
-BATCH = 8
-USE_AMP = True
-USE_COMPILE = True
-MERGE_EVERY = 110
-SAVE_EVERY = 200
-
 
 @dataclass
 class GMTTrainingConfig:
@@ -51,8 +44,8 @@ class GMTTrainingConfig:
     data_dir: Union[str, Path] = Path("data/prepared_owt")
     output_dir: Union[str, Path] = Path("runs/gmt_v7_base")
     epochs: int = 2
-    batch_size: int = BATCH
-    grad_accum: int = GRAD_ACCUM
+    batch_size: int = 8
+    grad_accum: int = 33
     learning_rate: float = 3e-4
     weight_decay: float = 0.1
     beta1: float = 0.9
@@ -62,15 +55,15 @@ class GMTTrainingConfig:
     train_workers: int = 4
     val_workers: int = 2
     pin_memory: bool = True
-    use_amp: bool = USE_AMP
-    use_compile: bool = USE_COMPILE
+    use_amp: bool = True
+    use_compile: bool = True
     lambda_track: float = LAMBDA_TRACK
     ortho_beta: float = ORTHO_BETA
     lambda_cluster: float = LAMBDA_CLUSTER
     lambda_edge: float = LAMBDA_EDGE
     lambda_contrast: float = LAMBDA_CONTRAST
-    merge_every: int = MERGE_EVERY
-    save_every: int = SAVE_EVERY
+    merge_every: int = 110
+    save_every: int = 200
 
     def __post_init__(self) -> None:
         self.data_dir = Path(self.data_dir)
@@ -97,12 +90,21 @@ def unwrap_model(model: nn.Module) -> nn.Module:
 def build_dataloaders(
     data_dir: Union[str, Path],
     seq_len: int = SEQ_LEN,
-    batch_size: int = BATCH,
+    batch_size: int = 8,
     train_workers: int = 4,
     val_workers: int = 2,
     pin_memory: bool = True,
 ) -> Tuple[DataLoader, DataLoader]:
     data_dir = Path(data_dir)
+    expected = (data_dir / "train.bin", data_dir / "val.bin")
+    missing = [path for path in expected if not path.exists()]
+    if missing:
+        missing_names = ", ".join(path.name for path in missing)
+        raise FileNotFoundError(
+            f"GMT training data is incomplete in {data_dir}. "
+            f"Expected train.bin and val.bin; missing: {missing_names}"
+        )
+
     train_ds = TokenStreamDataset(data_dir / "train.bin", seq_len=seq_len)
     val_ds = TokenStreamDataset(data_dir / "val.bin", seq_len=seq_len)
     train_dl = make_dataloader(

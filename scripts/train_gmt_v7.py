@@ -14,8 +14,13 @@ from gmt import GMTTrainingConfig, GMTV7, GMTV7Config, Trainer, build_dataloader
 
 
 def load_yaml(path: Path) -> dict:
+    if not path.exists():
+        raise FileNotFoundError(f"Configuration file not found: {path}")
     with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+        cfg = yaml.safe_load(f) or {}
+    if not isinstance(cfg, dict):
+        raise ValueError(f"Configuration file must contain a YAML mapping: {path}")
+    return cfg
 
 
 def parse_args() -> argparse.Namespace:
@@ -26,11 +31,30 @@ def parse_args() -> argparse.Namespace:
         default=Path("configs/gmt_v7_base.yaml"),
         help="YAML configuration file.",
     )
-    parser.add_argument("--data-dir", type=Path, default=None)
-    parser.add_argument("--output-dir", type=Path, default=None)
-    parser.add_argument("--device", default=None)
-    parser.add_argument("--epochs", type=int, default=None)
-    parser.add_argument("--batch-size", type=int, default=None)
+    parser.add_argument(
+        "--data-dir",
+        type=Path,
+        default=None,
+        help="Directory containing train.bin and val.bin; overrides the config.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Directory for checkpoints and progress logs; overrides the config.",
+    )
+    parser.add_argument(
+        "--device",
+        default=None,
+        help="Training device, e.g. cuda:0 or cpu.",
+    )
+    parser.add_argument("--epochs", type=int, default=None, help="Override epoch count.")
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=None,
+        help="Override per-step dataloader batch size.",
+    )
     parser.add_argument("--no-amp", action="store_true")
     parser.add_argument("--compile", dest="compile_model", action="store_true")
     parser.add_argument("--no-compile", dest="compile_model", action="store_false")
