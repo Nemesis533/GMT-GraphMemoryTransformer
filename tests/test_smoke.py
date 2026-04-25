@@ -1,5 +1,9 @@
 """Portable smoke tests for the GMT package."""
 
+import importlib
+import importlib.util
+from pathlib import Path
+
 import numpy as np
 import torch
 
@@ -9,8 +13,13 @@ from gmt import (
     GMTV7Config,
     GraphMemoryCell,
     TokenStreamDataset,
+    Trainer,
     build_dataloaders,
+    build_model,
 )
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
 def tiny_config() -> GMTV7Config:
@@ -25,6 +34,44 @@ def tiny_config() -> GMTV7Config:
         attention_dropout=0.0,
         embedding_dropout=0.0,
     )
+
+
+def load_training_script():
+    script_path = REPO_ROOT / "scripts" / "train_gmt_v7.py"
+    spec = importlib.util.spec_from_file_location("train_gmt_v7", script_path)
+    if spec is None or spec.loader is None:
+        raise AssertionError(f"Could not load {script_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_package_imports_public_api() -> None:
+    package = importlib.import_module("gmt")
+
+    assert package.GMTV7 is GMTV7
+    assert package.GMTV7Config is GMTV7Config
+    assert package.GMTTrainingConfig is GMTTrainingConfig
+
+
+def test_default_yaml_config_loads() -> None:
+    train_script = load_training_script()
+    cfg = train_script.load_yaml(REPO_ROOT / "configs" / "gmt_v7_base.yaml")
+
+    model_cfg = GMTV7Config(**cfg["model"])
+    training_cfg = GMTTrainingConfig(**cfg["training"])
+
+    assert model_cfg.memory_slots == 128
+    assert model_cfg.n_layers == 16
+    assert str(training_cfg.data_dir) == "data/prepared_owt"
+    assert str(training_cfg.output_dir) == "runs/gmt_v7_base"
+
+
+def test_model_constructs_from_package_helper() -> None:
+    model = build_model(tiny_config())
+
+    assert isinstance(model, GMTV7)
+    assert len(model.blocks) == 2
 
 
 def test_model_forward_shapes_and_losses() -> None:
@@ -110,3 +157,51 @@ def test_build_dataloaders_reports_missing_streams(tmp_path) -> None:
     assert "Expected train.bin and val.bin" in message
     assert "train.bin" in message
     assert "val.bin" in message
+
+
+def test_tiny_synthetic_training_step(tmp_path) -> None:
+    torch.manual_seed(0)
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    np.arange(40, dtype=np.uint16).tofile(data_dir / "train.bin")
+    np.arange(20, dtype=np.uint16).tofile(data_dir / "val.bin")
+
+    model_cfg = tiny_config()
+    train_dl, val_dl = build_dataloaders(
+        data_dir,
+        seq_len=model_cfg.seq_len,
+        batch_size=2,
+        train_workers=0,
+        val_workers=0,
+        pin_memory=False,
+    )
+    training_cfg = GMTTrainingConfig(
+        data_dir=data_dir,
+        output_dir=tmp_path / "runs",
+        epochs=1,
+        batch_size=2,
+        grad_accum=1,
+        learning_rate=1e-3,
+        warmup_steps=0,
+        max_val_batches=1,
+        train_workers=0,
+        val_workers=0,
+        pin_memory=False,
+        use_amp=False,
+        use_compile=False,
+        merge_every=1000,
+        save_every=1000,
+    )
+    trainer = Trainer(
+        GMTV7(model_cfg),
+        train_dl,
+        val_dl,
+        training_cfg,
+        torch.device("cpu"),
+    )
+
+    train_loss = trainer.train_epoch()
+
+    assert np.isfinite(train_loss)
+    assert trainer.global_step > 0
+    assert (training_cfg.output_dir / "progress.csv").exists()

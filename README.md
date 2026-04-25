@@ -17,6 +17,13 @@ entrypoint for token-stream language modeling.
 pip install -e .
 ```
 
+To run the test suite:
+
+```bash
+pip install -e .[test]
+pytest
+```
+
 ## Training Data
 
 The training entrypoint expects contiguous `uint16` token streams:
