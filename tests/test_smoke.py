@@ -205,3 +205,46 @@ def test_tiny_synthetic_training_step(tmp_path) -> None:
     assert np.isfinite(train_loss)
     assert trainer.global_step > 0
     assert (training_cfg.output_dir / "progress.csv").exists()
+
+
+def test_validation_only_does_not_write_best_checkpoint(tmp_path) -> None:
+    torch.manual_seed(0)
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    np.arange(20, dtype=np.uint16).tofile(data_dir / "train.bin")
+    np.arange(20, dtype=np.uint16).tofile(data_dir / "val.bin")
+
+    model_cfg = tiny_config()
+    train_dl, val_dl = build_dataloaders(
+        data_dir,
+        seq_len=model_cfg.seq_len,
+        batch_size=2,
+        train_workers=0,
+        val_workers=0,
+        pin_memory=False,
+    )
+    training_cfg = GMTTrainingConfig(
+        data_dir=data_dir,
+        output_dir=tmp_path / "runs",
+        batch_size=2,
+        grad_accum=1,
+        max_val_batches=1,
+        train_workers=0,
+        val_workers=0,
+        pin_memory=False,
+        use_amp=False,
+        use_compile=False,
+    )
+    trainer = Trainer(
+        GMTV7(model_cfg),
+        train_dl,
+        val_dl,
+        training_cfg,
+        torch.device("cpu"),
+    )
+
+    val_loss, ppl = trainer.validate(save_best=False)
+
+    assert np.isfinite(val_loss)
+    assert np.isfinite(ppl)
+    assert not (training_cfg.output_dir / "best.pt").exists()

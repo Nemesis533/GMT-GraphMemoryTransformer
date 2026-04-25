@@ -60,6 +60,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-compile", dest="compile_model", action="store_false")
     parser.set_defaults(compile_model=None)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument(
+        "--eval-only",
+        action="store_true",
+        help="Run validation and exit. Use with --resume to evaluate a checkpoint.",
+    )
     return parser.parse_args()
 
 
@@ -139,6 +144,10 @@ def main() -> None:
     trainer = Trainer(model, train_dl, val_dl, training_cfg, device)
     if args.resume:
         trainer.load_checkpoint()
+    if args.eval_only:
+        val_loss, ppl = trainer.validate(save_best=False)
+        logger.info("Validation loss: %.5f | Perplexity: %.2f", val_loss, ppl)
+        return
     trainer.fit()
 
 

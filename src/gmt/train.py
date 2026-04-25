@@ -441,7 +441,11 @@ class Trainer:
 
         return total_loss / len(self.train_dl)
 
-    def validate(self, max_batches: Optional[int] = None) -> Tuple[float, float]:
+    def validate(
+        self,
+        max_batches: Optional[int] = None,
+        save_best: bool = True,
+    ) -> Tuple[float, float]:
         self.model.eval()
         total = 0.0
         n = 0
@@ -473,7 +477,7 @@ class Trainer:
 
         loss = total / n
         ppl = float(np.exp(min(loss, 20)))
-        if loss < self.best_loss:
+        if save_best and loss < self.best_loss:
             self.best_loss = loss
             self._save_checkpoint("best.pt", loss=loss)
             logger.info("New best validation loss: %.5f", loss)
