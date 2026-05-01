@@ -1,0 +1,272 @@
+TransMem v7 — Displacement Examples (Semantic Shifts)
+==========================================================================================
+
+This shows examples of how tokens move through memory space,
+revealing semantic relationships learned by the model.
+
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 32 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 27 times, avg ||d||=12.354)
+    Destinations:
+      -> Slot 105 (14x)  [co-targets: ' 25', ' its', '.']
+      -> Slot  56 (13x)  [co-targets: ' food', '.', ' ']
+
+  Token: ' the'               (hit 14 times, avg ||d||=9.829)
+    Destinations:
+      -> Slot  82 (14x)  [co-targets: ' central', ' bank', ' raised']
+
+  Token: ','                  (hit 9 times, avg ||d||=12.038)
+    Destinations:
+      -> Slot  40 ( 8x)  [co-targets: ' Thursday', ',', ' the']
+      -> Slot  35 ( 1x)  [co-targets: ' citing', ' signalling', ' ten']
+
+  Token: ' to'                (hit 6 times, avg ||d||=12.097)
+    Destinations:
+      -> Slot  64 ( 3x)  [co-targets: ' on', ' its', ' largely']
+      -> Slot  40 ( 2x)  [co-targets: ' Thursday', ',', ' the']
+
+  Token: ' '                  (hit 6 times, avg ||d||=12.202)
+    Destinations:
+      -> Slot  69 ( 3x)  [co-targets: ' its', ' seventh', ' persistent']
+      -> Slot  82 ( 1x)  [co-targets: ' central', ' bank', ' raised']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 121 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 16 times, avg ||d||=10.526)
+    Destinations:
+      -> Slot  59 (16x)  [co-targets: ' its', ' seventh', ' had']
+
+  Token: '.'                  (hit 14 times, avg ||d||=10.557)
+    Destinations:
+      -> Slot  29 (14x)  [co-targets: '.', ' that', ' will']
+
+  Token: ','                  (hit 9 times, avg ||d||=10.381)
+    Destinations:
+      -> Slot  98 ( 9x)  [co-targets: ',', ' and', ' from']
+
+  Token: ' to'                (hit 7 times, avg ||d||=10.575)
+    Destinations:
+      -> Slot  59 ( 6x)  [co-targets: ' its', ' seventh', ' had']
+      -> Slot 109 ( 1x)  [co-targets: 'The', ' central', ' bank']
+
+  Token: ' with'              (hit 6 times, avg ||d||=10.857)
+    Destinations:
+      -> Slot  89 ( 3x)  [co-targets: ' by', ' on', ' across']
+      -> Slot 109 ( 3x)  [co-targets: 'The', ' central', ' bank']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 57 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 13 times, avg ||d||=8.424)
+    Destinations:
+      -> Slot 107 (13x)  [co-targets: ' central', ' bank', ' interest']
+
+  Token: '.'                  (hit 12 times, avg ||d||=8.669)
+    Destinations:
+      -> Slot  10 ( 7x)  [co-targets: ' seventh', ' Markets', ' analysts']
+      -> Slot  71 ( 4x)  [co-targets: 'The', ' raised', ' and']
+
+  Token: ','                  (hit 9 times, avg ||d||=8.606)
+    Destinations:
+      -> Slot 116 ( 9x)  [co-targets: ' 25', ' on', ',']
+
+  Token: ' to'                (hit 6 times, avg ||d||=8.458)
+    Destinations:
+      -> Slot 107 ( 6x)  [co-targets: ' central', ' bank', ' interest']
+
+  Token: ' a'                 (hit 5 times, avg ||d||=8.564)
+    Destinations:
+      -> Slot 107 ( 5x)  [co-targets: ' central', ' bank', ' interest']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 55 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 10 times, avg ||d||=10.334)
+    Destinations:
+      -> Slot 109 ( 7x)  [co-targets: 'The', ' central', ' bank']
+      -> Slot  63 ( 3x)  [co-targets: ' decisive', '.', ' significant']
+
+  Token: ' decisive'          (hit 8 times, avg ||d||=11.129)
+    Destinations:
+      -> Slot  99 ( 2x)  [co-targets: ' central', ' interest', ' rates']
+      -> Slot  73 ( 2x)  [co-targets: ' central', ' bank', ' raised']
+
+  Token: ' the'               (hit 6 times, avg ||d||=11.200)
+    Destinations:
+      -> Slot 107 ( 3x)  [co-targets: ' central', ' bank', ' interest']
+      -> Slot  50 ( 2x)  [co-targets: ' the', ' analysts', ' The']
+
+  Token: ' constructive'      (hit 5 times, avg ||d||=10.690)
+    Destinations:
+      -> Slot  99 ( 1x)  [co-targets: ' central', ' interest', ' rates']
+      -> Slot  73 ( 1x)  [co-targets: ' central', ' bank', ' raised']
+
+  Token: ' over'              (hit 5 times, avg ||d||=11.371)
+    Destinations:
+      -> Slot 107 ( 2x)  [co-targets: ' central', ' bank', ' interest']
+      -> Slot   6 ( 2x)  [co-targets: ' citing', ' in', ' on']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 119 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' a'                 (hit 9 times, avg ||d||=11.813)
+    Destinations:
+      -> Slot  81 ( 4x)  [co-targets: ' central', ' raised', ' interest']
+      -> Slot  66 ( 3x)  [co-targets: ' central', ' raised', ' by']
+
+  Token: '.'                  (hit 9 times, avg ||d||=10.983)
+    Destinations:
+      -> Slot  70 ( 9x)  [co-targets: ' on', ' across', '.']
+
+  Token: ','                  (hit 6 times, avg ||d||=10.992)
+    Destinations:
+      -> Slot 124 ( 6x)  [co-targets: ' bank', ',', ' across']
+
+  Token: ' analysts'          (hit 4 times, avg ||d||=10.773)
+    Destinations:
+      -> Slot  47 ( 2x)  [co-targets: ' analysts', ' leaders', ' workers']
+      -> Slot  62 ( 2x)  [co-targets: ' central', ' bank', ' interest']
+
+  Token: ' to'                (hit 4 times, avg ||d||=10.984)
+    Destinations:
+      -> Slot  27 ( 4x)  [co-targets: ' largely', ' to', ' also']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 83 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 14 times, avg ||d||=13.470)
+    Destinations:
+      -> Slot  71 ( 7x)  [co-targets: 'The', ' raised', ' and']
+      -> Slot 105 ( 6x)  [co-targets: ' 25', ' its', '.']
+
+  Token: ' statement'         (hit 3 times, avg ||d||=12.194)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' central', ' bank', ' raised']
+      -> Slot  52 ( 1x)  [co-targets: 'The', ' 25', ' Thursday']
+
+  Token: ' analysts'          (hit 3 times, avg ||d||=12.507)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' central', ' bank', ' raised']
+      -> Slot  10 ( 1x)  [co-targets: ' seventh', ' Markets', ' analysts']
+
+  Token: ' after'             (hit 3 times, avg ||d||=12.233)
+    Destinations:
+      -> Slot  44 ( 1x)  [co-targets: ' by', ' citing', ' across']
+      -> Slot  65 ( 1x)  [co-targets: ' 25', ' basis', ' points']
+
+  Token: ' '                  (hit 3 times, avg ||d||=13.434)
+    Destinations:
+      -> Slot 119 ( 1x)  [co-targets: '-', ' ', ' under']
+      -> Slot  10 ( 1x)  [co-targets: ' seventh', ' Markets', ' analysts']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 16 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 7 times, avg ||d||=9.918)
+    Destinations:
+      -> Slot  81 ( 7x)  [co-targets: ' central', ' raised', ' interest']
+
+  Token: ','                  (hit 6 times, avg ||d||=10.032)
+    Destinations:
+      -> Slot  81 ( 6x)  [co-targets: ' central', ' raised', ' interest']
+
+  Token: '.'                  (hit 6 times, avg ||d||=10.009)
+    Destinations:
+      -> Slot  81 ( 6x)  [co-targets: ' central', ' raised', ' interest']
+
+  Token: ' on'                (hit 4 times, avg ||d||=10.773)
+    Destinations:
+      -> Slot  81 ( 2x)  [co-targets: ' central', ' raised', ' interest']
+      -> Slot  85 ( 2x)  [co-targets: ' on', ' citing', ' across']
+
+  Token: ' in'                (hit 3 times, avg ||d||=9.918)
+    Destinations:
+      -> Slot  81 ( 3x)  [co-targets: ' central', ' raised', ' interest']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 68 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 10 times, avg ||d||=11.883)
+    Destinations:
+      -> Slot   8 (10x)  [co-targets: ' Thursday', ' consecutive', '.']
+
+  Token: ' '                  (hit 6 times, avg ||d||=10.019)
+    Destinations:
+      -> Slot 116 ( 3x)  [co-targets: ' 25', ' on', ',']
+      -> Slot  67 ( 3x)  [co-targets: ' ']
+
+  Token: ' to'                (hit 5 times, avg ||d||=11.814)
+    Destinations:
+      -> Slot  39 ( 5x)  [co-targets: ' bank', ' raised', ' interest']
+
+  Token: ' a'                 (hit 4 times, avg ||d||=11.812)
+    Destinations:
+      -> Slot  39 ( 4x)  [co-targets: ' bank', ' raised', ' interest']
+
+  Token: 'w'                  (hit 2 times, avg ||d||=9.991)
+    Destinations:
+      -> Slot 116 ( 1x)  [co-targets: ' 25', ' on', ',']
+      -> Slot  79 ( 1x)  [co-targets: ' interest', ' rates', ' increase']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 24 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 11 times, avg ||d||=10.901)
+    Destinations:
+      -> Slot 109 (11x)  [co-targets: 'The', ' central', ' bank']
+
+  Token: ' a'                 (hit 6 times, avg ||d||=10.827)
+    Destinations:
+      -> Slot  49 ( 5x)  [co-targets: 'The', ' its', ' consecutive']
+      -> Slot  39 ( 1x)  [co-targets: ' bank', ' raised', ' interest']
+
+  Token: ' two'               (hit 4 times, avg ||d||=11.008)
+    Destinations:
+      -> Slot  39 ( 2x)  [co-targets: ' bank', ' raised', ' interest']
+      -> Slot 114 ( 2x)  [co-targets: ' interest', ' 25', ' consecutive']
+
+  Token: ' that'              (hit 3 times, avg ||d||=8.058)
+    Destinations:
+      -> Slot 116 ( 3x)  [co-targets: ' 25', ' on', ',']
+
+  Token: '.'                  (hit 3 times, avg ||d||=11.899)
+    Destinations:
+      -> Slot   8 ( 3x)  [co-targets: ' Thursday', ' consecutive', '.']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 65 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 4 times, avg ||d||=11.036)
+    Destinations:
+      -> Slot  70 ( 4x)  [co-targets: ' on', ' across', '.']
+
+  Token: ' to'                (hit 2 times, avg ||d||=11.002)
+    Destinations:
+      -> Slot  27 ( 2x)  [co-targets: ' largely', ' to', ' also']
+
+  Token: ' with'              (hit 2 times, avg ||d||=10.974)
+    Destinations:
+      -> Slot  81 ( 2x)  [co-targets: ' central', ' raised', ' interest']
+
+  Token: ' two'               (hit 2 times, avg ||d||=10.980)
+    Destinations:
+      -> Slot  64 ( 2x)  [co-targets: ' on', ' its', ' largely']
+
+  Token: ' that'              (hit 2 times, avg ||d||=10.997)
+    Destinations:
+      -> Slot  81 ( 2x)  [co-targets: ' central', ' raised', ' interest']
+
+==========================================================================================

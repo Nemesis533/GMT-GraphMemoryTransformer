@@ -1,0 +1,276 @@
+TransMem v7 — Displacement Examples (Semantic Shifts)
+==========================================================================================
+
+This shows examples of how tokens move through memory space,
+revealing semantic relationships learned by the model.
+
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 32 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 31 times, avg ||d||=12.240)
+    Destinations:
+      -> Slot 105 (19x)  [co-targets: ' J', '.', ' 1897']
+      -> Slot  56 ( 8x)  [co-targets: '.', ' Sub', ' cou']
+
+  Token: ' the'               (hit 18 times, avg ||d||=10.202)
+    Destinations:
+      -> Slot  82 (15x)  [co-targets: ' electron', ' was', ' first']
+      -> Slot  40 ( 3x)  [co-targets: ' His', ' the', '-']
+
+  Token: ','                  (hit 10 times, avg ||d||=12.069)
+    Destinations:
+      -> Slot  35 ( 6x)  [co-targets: ' identified', ' determined', ' elementary']
+      -> Slot  40 ( 4x)  [co-targets: ' His', ' the', '-']
+
+  Token: ' of'                (hit 7 times, avg ||d||=12.034)
+    Destinations:
+      -> Slot  99 ( 3x)  [co-targets: ' by', ' with', ' of']
+      -> Slot 105 ( 3x)  [co-targets: ' J', '.', ' 1897']
+
+  Token: ' '                  (hit 6 times, avg ||d||=12.215)
+    Destinations:
+      -> Slot  69 ( 3x)  [co-targets: ' cou', ' the', ' ']
+      -> Slot  56 ( 2x)  [co-targets: '.', ' Sub', ' cou']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 55 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 6 times, avg ||d||=8.820)
+    Destinations:
+      -> Slot  95 ( 2x)  [co-targets: ' identified', ' revealed', ' determined']
+      -> Slot  71 ( 2x)  [co-targets: 'The', ' than', '.']
+
+  Token: ' plausible'         (hit 5 times, avg ||d||=10.711)
+    Destinations:
+      -> Slot  99 ( 1x)  [co-targets: ' by', ' with', ' of']
+      -> Slot  73 ( 1x)  [co-targets: ' electron', ' was', ' first']
+
+  Token: ' definitive'        (hit 5 times, avg ||d||=10.682)
+    Destinations:
+      -> Slot  99 ( 1x)  [co-targets: ' by', ' with', ' of']
+      -> Slot  73 ( 1x)  [co-targets: ' electron', ' was', ' first']
+
+  Token: ','                  (hit 5 times, avg ||d||=8.884)
+    Destinations:
+      -> Slot 107 ( 4x)  [co-targets: ' electron', ' was', ' by']
+      -> Slot 116 ( 1x)  [co-targets: ' electron', ' first', ' J']
+
+  Token: 'olar'               (hit 4 times, avg ||d||=11.142)
+    Destinations:
+      -> Slot 107 ( 1x)  [co-targets: ' electron', ' was', ' by']
+      -> Slot  73 ( 1x)  [co-targets: ' electron', ' was', ' first']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 121 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 22 times, avg ||d||=10.561)
+    Destinations:
+      -> Slot  29 (22x)  [co-targets: '.', '-', 'to']
+
+  Token: ' the'               (hit 17 times, avg ||d||=10.522)
+    Destinations:
+      -> Slot  59 (17x)  [co-targets: ' was', ' first', ' His']
+
+  Token: ','                  (hit 10 times, avg ||d||=10.372)
+    Destinations:
+      -> Slot  98 (10x)  [co-targets: ' during', ' Sub', ' cou']
+
+  Token: ' of'                (hit 7 times, avg ||d||=10.697)
+    Destinations:
+      -> Slot  89 ( 7x)  [co-targets: ' by', ' in', ' with']
+
+  Token: ' gradient'          (hit 6 times, avg ||d||=9.850)
+    Destinations:
+      -> Slot 107 ( 4x)  [co-targets: ' electron', ' was', ' by']
+      -> Slot 116 ( 2x)  [co-targets: ' electron', ' first', ' J']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 57 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 19 times, avg ||d||=8.955)
+    Destinations:
+      -> Slot  95 ( 8x)  [co-targets: ' identified', ' revealed', ' determined']
+      -> Slot  10 ( 6x)  [co-targets: ' first', '.', ' experiments']
+
+  Token: ' the'               (hit 15 times, avg ||d||=8.347)
+    Destinations:
+      -> Slot 107 (15x)  [co-targets: ' electron', ' was', ' by']
+
+  Token: ' of'                (hit 7 times, avg ||d||=8.368)
+    Destinations:
+      -> Slot 107 ( 5x)  [co-targets: ' electron', ' was', ' by']
+      -> Slot   1 ( 2x)  [co-targets: ' in', ' during', ' revealed']
+
+  Token: ' a'                 (hit 5 times, avg ||d||=8.565)
+    Destinations:
+      -> Slot 107 ( 5x)  [co-targets: ' electron', ' was', ' by']
+
+  Token: ','                  (hit 5 times, avg ||d||=8.300)
+    Destinations:
+      -> Slot 116 ( 4x)  [co-targets: ' electron', ' first', ' J']
+      -> Slot 107 ( 1x)  [co-targets: ' electron', ' was', ' by']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 83 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 22 times, avg ||d||=13.476)
+    Destinations:
+      -> Slot  71 ( 9x)  [co-targets: 'The', ' than', '.']
+      -> Slot 123 ( 7x)  [co-targets: '.', ' Thomson', ' 1897']
+
+  Token: ' the'               (hit 8 times, avg ||d||=13.485)
+    Destinations:
+      -> Slot  64 ( 4x)  [co-targets: ' in', ' during', ' the']
+      -> Slot  96 ( 2x)  [co-targets: 'The', ' electron', '.']
+
+  Token: ' gradient'          (hit 5 times, avg ||d||=13.271)
+    Destinations:
+      -> Slot  66 ( 3x)  [co-targets: ' by', ' Thomson', ' in']
+      -> Slot  52 ( 1x)  [co-targets: 'The', ' J', ' cath']
+
+  Token: ' update'            (hit 4 times, avg ||d||=13.057)
+    Destinations:
+      -> Slot  96 ( 2x)  [co-targets: 'The', ' electron', '.']
+      -> Slot  36 ( 1x)  [co-targets: ' was', ' J', ' Thomson']
+
+  Token: 'ta'                 (hit 4 times, avg ||d||=13.460)
+    Destinations:
+      -> Slot  96 ( 2x)  [co-targets: 'The', ' electron', '.']
+      -> Slot  66 ( 1x)  [co-targets: ' by', ' Thomson', ' in']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 119 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 10 times, avg ||d||=10.982)
+    Destinations:
+      -> Slot  70 (10x)  [co-targets: '.', ' in', '-']
+
+  Token: ' a'                 (hit 7 times, avg ||d||=11.835)
+    Destinations:
+      -> Slot  81 ( 3x)  [co-targets: ' was', ' by', '.']
+      -> Slot  66 ( 2x)  [co-targets: ' by', ' Thomson', ' in']
+
+  Token: ','                  (hit 5 times, avg ||d||=10.988)
+    Destinations:
+      -> Slot 124 ( 5x)  [co-targets: ' electron', ' identified', ' in']
+
+  Token: ' equals'            (hit 4 times, avg ||d||=10.356)
+    Destinations:
+      -> Slot  82 ( 2x)  [co-targets: ' electron', ' was', ' first']
+      -> Slot  76 ( 2x)  [co-targets: ' identified', ' of', ' revealed']
+
+  Token: ' minus'             (hit 4 times, avg ||d||=10.372)
+    Destinations:
+      -> Slot  82 ( 2x)  [co-targets: ' electron', ' was', ' first']
+      -> Slot  81 ( 2x)  [co-targets: ' was', ' by', '.']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 24 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 8 times, avg ||d||=11.876)
+    Destinations:
+      -> Slot   8 ( 8x)  [co-targets: '.', ' His', ' researchers']
+
+  Token: ' a'                 (hit 6 times, avg ||d||=10.808)
+    Destinations:
+      -> Slot  49 ( 4x)  [co-targets: 'The', ' was', ' first']
+      -> Slot  39 ( 1x)  [co-targets: ' was', ' first', ' identified']
+
+  Token: ' before'            (hit 4 times, avg ||d||=10.938)
+    Destinations:
+      -> Slot  39 ( 2x)  [co-targets: ' was', ' first', ' identified']
+      -> Slot  58 ( 2x)  [co-targets: ' by', ' in', ' during']
+
+  Token: ','                  (hit 4 times, avg ||d||=10.048)
+    Destinations:
+      -> Slot  43 ( 4x)  [co-targets: 'The', ' was', ' of']
+
+  Token: ' '                  (hit 3 times, avg ||d||=10.637)
+    Destinations:
+      -> Slot  35 ( 2x)  [co-targets: ' identified', ' determined', ' elementary']
+      -> Slot  67 ( 1x)  [co-targets: ' J', ' semic', ' ']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 16 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 11 times, avg ||d||=9.913)
+    Destinations:
+      -> Slot  81 (11x)  [co-targets: ' was', ' by', '.']
+
+  Token: '.'                  (hit 8 times, avg ||d||=10.032)
+    Destinations:
+      -> Slot  81 ( 8x)  [co-targets: ' was', ' by', '.']
+
+  Token: ' of'                (hit 5 times, avg ||d||=9.966)
+    Destinations:
+      -> Slot  81 ( 5x)  [co-targets: ' was', ' by', '.']
+
+  Token: ','                  (hit 5 times, avg ||d||=9.974)
+    Destinations:
+      -> Slot  81 ( 5x)  [co-targets: ' was', ' by', '.']
+
+  Token: ' gradient'          (hit 4 times, avg ||d||=9.825)
+    Destinations:
+      -> Slot  81 ( 4x)  [co-targets: ' was', ' by', '.']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 68 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 11 times, avg ||d||=11.875)
+    Destinations:
+      -> Slot   8 (11x)  [co-targets: '.', ' His', ' researchers']
+
+  Token: ' v'                 (hit 8 times, avg ||d||=9.989)
+    Destinations:
+      -> Slot  99 ( 4x)  [co-targets: ' by', ' with', ' of']
+      -> Slot  90 ( 4x)  [co-targets: ' cath', ' of', ' and']
+
+  Token: ' '                  (hit 5 times, avg ||d||=9.645)
+    Destinations:
+      -> Slot 116 ( 3x)  [co-targets: ' electron', ' first', ' J']
+      -> Slot  67 ( 2x)  [co-targets: ' J', ' semic', ' ']
+
+  Token: ' J'                 (hit 4 times, avg ||d||=9.865)
+    Destinations:
+      -> Slot 116 ( 2x)  [co-targets: ' electron', ' first', ' J']
+      -> Slot  18 ( 2x)  [co-targets: ' electron', ' was', ' J']
+
+  Token: ' a'                 (hit 4 times, avg ||d||=11.811)
+    Destinations:
+      -> Slot  39 ( 4x)  [co-targets: ' was', ' first', ' identified']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 70 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 13 times, avg ||d||=10.684)
+    Destinations:
+      -> Slot 109 (13x)  [co-targets: 'The', ' electron', ' first']
+
+  Token: 'ta'                 (hit 4 times, avg ||d||=10.797)
+    Destinations:
+      -> Slot 109 ( 4x)  [co-targets: 'The', ' electron', ' first']
+
+  Token: ','                  (hit 4 times, avg ||d||=10.929)
+    Destinations:
+      -> Slot 109 ( 4x)  [co-targets: 'The', ' electron', ' first']
+
+  Token: ' a'                 (hit 4 times, avg ||d||=10.707)
+    Destinations:
+      -> Slot 109 ( 4x)  [co-targets: 'The', ' electron', ' first']
+
+  Token: ' v'                 (hit 4 times, avg ||d||=10.808)
+    Destinations:
+      -> Slot 109 ( 4x)  [co-targets: 'The', ' electron', ' first']
+
+==========================================================================================

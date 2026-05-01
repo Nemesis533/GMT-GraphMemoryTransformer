@@ -13,6 +13,8 @@ used to keep routing and memory usage stable.
 
 ## Install
 
+See [SETUP.md](SETUP.md) for virtual environment setup instructions. In short:
+
 ```bash
 pip install -e .
 ```
@@ -64,6 +66,8 @@ python scripts/train_gmt_v7.py \
 
 ## Evaluate
 
+### Validation loss / perplexity
+
 Validation runs during training and reports validation loss and perplexity. To
 evaluate a saved checkpoint without running another training epoch, use
 `--eval-only` with `--resume`:
@@ -79,35 +83,35 @@ The evaluation path uses `val.bin` from the configured data directory. It reads
 the checkpoint from the configured output directory and reports validation loss
 and perplexity without writing a new best checkpoint.
 
+### Downstream benchmarks
+
+The `eval_scripts/` directory contains standalone evaluation scripts supplied
+for reproducibility.  They auto-detect the model type from the checkpoint state
+dict (baseline GPT-2 or GMT v7) and set the routing temperature to `TEMP_MIN`
+(0.1) for v7 models — matching the paper's evaluation protocol.
+
+```bash
+# ARC-Easy (no lm-eval dependency)
+python eval_scripts/eval_arc_easy.py --ckpt /path/to/best.pt
+
+# lm-evaluation-harness tasks
+python eval_scripts/eval_lmeval.py --ckpt /path/to/best.pt --tasks hellaswag,piqa,arc_easy
+```
+
+Both scripts accept `--model <dir>` (loads `best.pt` from the directory) or
+`--ckpt <path>` for an explicit checkpoint file.  See `--help` for all options
+(device, batch size, few-shot count, sample limit, output path).
+
 ## Outputs
 
 By default, training writes to `runs/gmt_v7_base/`:
 
 ```text
 runs/gmt_v7_base/
-├── best.pt
 ├── latest.pt
 └── progress.csv
 ```
 
-`latest.pt` is the most recent periodic checkpoint, `best.pt` is the checkpoint
-with the lowest validation loss observed during training, and `progress.csv`
-records validation metrics and memory diagnostics over time. Generated data,
-checkpoints, logs, and run directories are ignored by git.
+The best checkpoint (lowest validation loss) is published on
+[Hugging Face](https://huggingface.co/NicolaZanarini/gmt-v7-base).
 
-## Repository Layout
-
-```text
-GMT-GraphMemoryTransformer/
-├── configs/
-│   └── gmt_v7_base.yaml
-├── scripts/
-│   └── train_gmt_v7.py
-├── src/
-│   └── gmt/
-│       ├── data.py
-│       ├── model.py
-│       └── train.py
-└── tests/
-    └── test_smoke.py
-```

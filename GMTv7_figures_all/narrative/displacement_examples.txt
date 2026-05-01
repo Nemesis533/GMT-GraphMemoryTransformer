@@ -1,0 +1,275 @@
+TransMem v7 — Displacement Examples (Semantic Shifts)
+==========================================================================================
+
+This shows examples of how tokens move through memory space,
+revealing semantic relationships learned by the model.
+
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 57 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 17 times, avg ||d||=8.601)
+    Destinations:
+      -> Slot 107 (17x)  [co-targets: ' had', ' lived', ' in']
+
+  Token: '.'                  (hit 15 times, avg ||d||=8.340)
+    Destinations:
+      -> Slot  71 ( 8x)  [co-targets: 'Maria', ' lived', ' for']
+      -> Slot  95 ( 4x)  [co-targets: 'ed', ' cracked', ' it']
+
+  Token: ','                  (hit 13 times, avg ||d||=8.407)
+    Destinations:
+      -> Slot 116 ( 7x)  [co-targets: ' edge', ' the', ' forest']
+      -> Slot 107 ( 6x)  [co-targets: ' had', ' lived', ' in']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=8.327)
+    Destinations:
+      -> Slot  84 ( 5x)  [co-targets: ' years', ' was', ' began']
+
+  Token: ' in'                (hit 4 times, avg ||d||=8.677)
+    Destinations:
+      -> Slot 107 ( 4x)  [co-targets: ' had', ' lived', ' in']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 32 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 30 times, avg ||d||=12.274)
+    Destinations:
+      -> Slot 105 (15x)  [co-targets: ' before', '.', ' its']
+      -> Slot  56 (15x)  [co-targets: '.', ' yellow', ':']
+
+  Token: ','                  (hit 13 times, avg ||d||=11.918)
+    Destinations:
+      -> Slot  40 (12x)  [co-targets: ' the', ' The', ',']
+      -> Slot  35 ( 1x)  [co-targets: ' twenty', ' turned', 'ising']
+
+  Token: ' the'               (hit 12 times, avg ||d||=9.818)
+    Destinations:
+      -> Slot  82 (12x)  [co-targets: ' had', ' lived', ' in']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=11.875)
+    Destinations:
+      -> Slot  42 ( 3x)  [co-targets: ' neither', ' what', ' certain']
+      -> Slot  47 ( 1x)  [co-targets: ' as', ' "', '?"']
+
+  Token: ' in'                (hit 4 times, avg ||d||=12.169)
+    Destinations:
+      -> Slot  99 ( 3x)  [co-targets: ' lived', ' in', ' crumbling']
+      -> Slot 105 ( 1x)  [co-targets: ' before', '.', ' its']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 121 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 17 times, avg ||d||=10.548)
+    Destinations:
+      -> Slot  59 (17x)  [co-targets: ' had', ' the', ' before']
+
+  Token: '.'                  (hit 15 times, avg ||d||=10.561)
+    Destinations:
+      -> Slot  29 (15x)  [co-targets: '.', ' She', ' it']
+
+  Token: ','                  (hit 13 times, avg ||d||=10.383)
+    Destinations:
+      -> Slot  98 (13x)  [co-targets: ',', ' and', ' recogn']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=10.621)
+    Destinations:
+      -> Slot  29 ( 5x)  [co-targets: '.', ' She', ' it']
+
+  Token: ' its'               (hit 4 times, avg ||d||=10.549)
+    Destinations:
+      -> Slot  59 ( 4x)  [co-targets: ' had', ' the', ' before']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 119 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 10 times, avg ||d||=10.987)
+    Destinations:
+      -> Slot  70 (10x)  [co-targets: '.', ' Inside', ' ']
+
+  Token: ','                  (hit 9 times, avg ||d||=10.988)
+    Destinations:
+      -> Slot 124 ( 9x)  [co-targets: ' in', ' the', ' of']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=11.001)
+    Destinations:
+      -> Slot 113 ( 5x)  [co-targets: ' lived', ' years', ' before']
+
+  Token: ' a'                 (hit 4 times, avg ||d||=12.130)
+    Destinations:
+      -> Slot  61 ( 3x)  [co-targets: ' house', ' edge', ' forest']
+      -> Slot  81 ( 1x)  [co-targets: ' had', ' in', ' the']
+
+  Token: ' about'             (hit 3 times, avg ||d||=10.565)
+    Destinations:
+      -> Slot  81 ( 2x)  [co-targets: ' had', ' in', ' the']
+      -> Slot  82 ( 1x)  [co-targets: ' had', ' lived', ' in']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 68 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 12 times, avg ||d||=11.887)
+    Destinations:
+      -> Slot   8 (12x)  [co-targets: '.', ' Her', ' her']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=12.001)
+    Destinations:
+      -> Slot   6 ( 5x)  [co-targets: 'ising', ' "', '?"']
+
+  Token: ' '                  (hit 4 times, avg ||d||=10.015)
+    Destinations:
+      -> Slot 116 ( 2x)  [co-targets: ' edge', ' the', ' forest']
+      -> Slot  67 ( 2x)  [co-targets: ' ']
+
+  Token: ' its'               (hit 4 times, avg ||d||=11.880)
+    Destinations:
+      -> Slot   1 ( 4x)  [co-targets: ' forest', ' for', ' its']
+
+  Token: ' it'                (hit 4 times, avg ||d||=12.516)
+    Destinations:
+      -> Slot  36 ( 2x)  [co-targets: ' house', ' edge', ' forest']
+      -> Slot  39 ( 1x)  [co-targets: ' had', ' lived', ' in']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 16 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' the'               (hit 12 times, avg ||d||=9.929)
+    Destinations:
+      -> Slot  81 (12x)  [co-targets: ' had', ' in', ' the']
+
+  Token: '.'                  (hit 7 times, avg ||d||=10.020)
+    Destinations:
+      -> Slot  81 ( 7x)  [co-targets: ' had', ' in', ' the']
+
+  Token: ','                  (hit 7 times, avg ||d||=9.995)
+    Destinations:
+      -> Slot  81 ( 7x)  [co-targets: ' had', ' in', ' the']
+
+  Token: ' at'                (hit 6 times, avg ||d||=10.735)
+    Destinations:
+      -> Slot  85 ( 3x)  [co-targets: ' in', ' at', ' of']
+      -> Slot  81 ( 2x)  [co-targets: ' had', ' in', ' the']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=9.829)
+    Destinations:
+      -> Slot  81 ( 5x)  [co-targets: ' had', ' in', ' the']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 83 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: '.'                  (hit 15 times, avg ||d||=13.505)
+    Destinations:
+      -> Slot 105 (11x)  [co-targets: ' before', '.', ' its']
+      -> Slot  71 ( 4x)  [co-targets: 'Maria', ' lived', ' for']
+
+  Token: ' "'                 (hit 5 times, avg ||d||=13.893)
+    Destinations:
+      -> Slot 124 ( 5x)  [co-targets: ' in', ' the', ' of']
+
+  Token: ' envelope'          (hit 3 times, avg ||d||=12.198)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' had', ' lived', ' the']
+      -> Slot  66 ( 1x)  [co-targets: ' lived', ' in', ' the']
+
+  Token: ' dog'               (hit 3 times, avg ||d||=10.780)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' had', ' lived', ' the']
+      -> Slot 116 ( 1x)  [co-targets: ' edge', ' the', ' forest']
+
+  Token: ' it'                (hit 3 times, avg ||d||=13.484)
+    Destinations:
+      -> Slot  52 ( 3x)  [co-targets: 'Maria', ' edge', ' forest']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 55 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' warped'            (hit 4 times, avg ||d||=11.142)
+    Destinations:
+      -> Slot  99 ( 1x)  [co-targets: ' lived', ' in', ' crumbling']
+      -> Slot  73 ( 1x)  [co-targets: ' had', ' lived', ' the']
+
+  Token: ' the'               (hit 4 times, avg ||d||=12.339)
+    Destinations:
+      -> Slot  64 ( 3x)  [co-targets: ' the', ' of', ' She']
+      -> Slot  68 ( 1x)  [co-targets: ' at', ' The', ' piano']
+
+  Token: ' clean'             (hit 3 times, avg ||d||=11.328)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' had', ' lived', ' the']
+      -> Slot  82 ( 1x)  [co-targets: ' had', ' lived', ' in']
+
+  Token: 'bound'              (hit 3 times, avg ||d||=11.301)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' had', ' lived', ' the']
+      -> Slot  82 ( 1x)  [co-targets: ' had', ' lived', ' in']
+
+  Token: ' swept'             (hit 3 times, avg ||d||=11.310)
+    Destinations:
+      -> Slot  73 ( 1x)  [co-targets: ' had', ' lived', ' the']
+      -> Slot  82 ( 1x)  [co-targets: ' had', ' lived', ' in']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 33 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' its'               (hit 10 times, avg ||d||=11.004)
+    Destinations:
+      -> Slot  49 ( 6x)  [co-targets: 'Maria', ' had', ' the']
+      -> Slot  73 ( 2x)  [co-targets: ' had', ' lived', ' the']
+
+  Token: ' in'                (hit 5 times, avg ||d||=11.096)
+    Destinations:
+      -> Slot  78 ( 4x)  [co-targets: ' in']
+      -> Slot  58 ( 1x)  [co-targets: ' in', ' at', ' before']
+
+  Token: ' at'                (hit 4 times, avg ||d||=10.838)
+    Destinations:
+      -> Slot  68 ( 3x)  [co-targets: ' at', ' The', ' piano']
+      -> Slot  58 ( 1x)  [co-targets: ' in', ' at', ' before']
+
+  Token: ' her'               (hit 4 times, avg ||d||=11.088)
+    Destinations:
+      -> Slot  49 ( 3x)  [co-targets: 'Maria', ' had', ' the']
+      -> Slot 123 ( 1x)  [co-targets: ' years', 'ed', ' her']
+
+  Token: ' of'                (hit 3 times, avg ||d||=10.436)
+    Destinations:
+      -> Slot  73 ( 2x)  [co-targets: ' had', ' lived', ' the']
+      -> Slot  43 ( 1x)  [co-targets: 'Maria', ' had', ' of']
+
+──────────────────────────────────────────────────────────────────────────────────────────
+SLOT 23 — Top token affinities:
+──────────────────────────────────────────────────────────────────────────────────────────
+
+  Token: ' a'                 (hit 3 times, avg ||d||=10.049)
+    Destinations:
+      -> Slot  52 ( 3x)  [co-targets: 'Maria', ' edge', ' forest']
+
+  Token: ' its'               (hit 3 times, avg ||d||=10.161)
+    Destinations:
+      -> Slot 105 ( 3x)  [co-targets: ' before', '.', ' its']
+
+  Token: ' what'              (hit 2 times, avg ||d||=11.184)
+    Destinations:
+      -> Slot  82 ( 1x)  [co-targets: ' had', ' lived', ' in']
+      -> Slot  66 ( 1x)  [co-targets: ' lived', ' in', ' the']
+
+  Token: 'What'               (hit 2 times, avg ||d||=11.176)
+    Destinations:
+      -> Slot  82 ( 1x)  [co-targets: ' had', ' lived', ' in']
+      -> Slot  74 ( 1x)  [co-targets: ' in', ' twice', ' as']
+
+  Token: ' dawn'              (hit 2 times, avg ||d||=10.502)
+    Destinations:
+      -> Slot 103 ( 1x)  [co-targets: ' years', ' seal', ' mark']
+      -> Slot 109 ( 1x)  [co-targets: 'Maria', ' had', ' lived']
+
+==========================================================================================
